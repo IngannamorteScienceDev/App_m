@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">comp</string>
+    <string name="pass"><font size="15">Пароль</font></string>
+    <string name="fio"><font size="15">ФИО</font></string>
+    <string name="phone"><font size="15">+7 (999) - 999 - 99 - 00</font></string>
+    <string name="email"><font size="15">Email</font></string>
+    <string name="contract"><font size="15">Политика соглашения обработки персональных данных</font></string>
+    <string name="checkBox">Согласен</string>
+    <string name="btn_next">ДАЛЕЕ</string>
+    <string name="text_reg">РЕГИСТРАЦИЯ</string>
+</resources>
