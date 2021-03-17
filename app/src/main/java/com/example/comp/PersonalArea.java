@@ -20,7 +20,7 @@ public class PersonalArea extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_personal_area);
+        setContentView(R.layout.activity_app_personal_area);
 
         userName = findViewById(R.id.nameUser);
         exitBtn = findViewById(R.id.btnExit);
