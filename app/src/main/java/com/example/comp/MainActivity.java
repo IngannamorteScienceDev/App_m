@@ -1,13 +1,20 @@
 package com.example.comp;
 
+
 import androidx.appcompat.app.AppCompatActivity;
+
+
 
 import android.content.Context;
 import android.content.Intent;
+
 import android.os.Bundle;
+
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -15,14 +22,17 @@ public class MainActivity extends AppCompatActivity {
     private TextView reg_btn;
     private Button sign_btn;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         // Инициализация компонентов экрана
-        reg_btn = findViewById(R.id.create_acc);
+        reg_btn = findViewById(R.id.reg_btn);
         sign_btn = findViewById(R.id.sign_btn);
+
+
 
         // Поведения класса
         //Функция кнопки "Входа"
@@ -32,8 +42,8 @@ public class MainActivity extends AppCompatActivity {
                 Context context = MainActivity.this;
                 Class nextActivity = SignIn.class;
 
-                Intent nextSignAct = new Intent(context, nextActivity);
-                startActivity(nextSignAct);
+                Intent nextRegAct = new Intent(context, nextActivity);
+                startActivity(nextRegAct);
                 finish();
             }
         });
@@ -50,5 +60,5 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-    
+
 }

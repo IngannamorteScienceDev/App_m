@@ -36,9 +36,10 @@ public class SignIn extends AppCompatActivity {
         // Инициализация компонентов экрана
         email_address = findViewById(R.id.editTextEmailAddress);
         password_user = findViewById(R.id.editTextPassword);
-        check = findViewById(R.id.checkBox);
         back_btn = findViewById(R.id.back_btn);
         nxt_btn = findViewById(R.id.next_btn);
+
+        auth = FirebaseAuth.getInstance();
 
         // Поведения класса
         //Функция кнопки "Назад"

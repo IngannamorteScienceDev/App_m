@@ -1,176 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#212121"
     tools:context=".MainActivity"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical" >
 
-    <LinearLayout
-        android:id="@+id/linearLayout2"
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/ic_backg"
-        android:gravity="center"
-        android:orientation="vertical"
-
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto_light"
-            android:paddingTop="25dp"
-            android:text="ДОБРО ПОЖАЛОВАТЬ!"
-            android:textColor="#D4D4BD"
-            android:textSize="32sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto_light"
-            android:paddingTop="10dp"
-            android:text="Интернет-магазин компьютерных комплектующих!"
-            android:textColor="#D4D4BD"
-            android:textSize="14sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:layout_marginTop="300dp"
-            android:lines="1"
-            android:paddingTop="10dp"
-            android:paddingRight="5dp"
-            android:text="Официальные спонсоры:"
-            android:textColor="#D4D4BD"
-            android:textSize="11sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:lines="1"
-            android:paddingTop="1dp"
-            android:paddingRight="5dp"
-            android:text="Intel"
-            android:textColor="#D4D4BD"
-            android:textSize="11sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:lines="1"
-            android:paddingTop="1dp"
-            android:paddingRight="5dp"
-            android:text="NVIDIA"
-            android:textColor="#D4D4BD"
-            android:textSize="11sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:lines="1"
-            android:paddingTop="1dp"
-            android:paddingRight="5dp"
-            android:text="AMD"
-            android:textColor="#D4D4BD"
-            android:textSize="11sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:lines="1"
-            android:paddingTop="1dp"
-            android:paddingRight="5dp"
-            android:text="MSI"
-            android:textColor="#D4D4BD"
-            android:textSize="11sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:lines="1"
-            android:paddingTop="1dp"
-            android:paddingRight="5dp"
-            android:text="Gigabyte"
-            android:textColor="#D4D4BD"
-            android:textSize="11sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:lines="1"
-            android:paddingTop="1dp"
-            android:paddingRight="5dp"
-            android:text="ASUS"
-            android:textColor="#D4D4BD"
-            android:textSize="11sp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:orientation="vertical"
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="@font/roboto_light"
-            android:padding="10dp"
-            android:text="Войдите или зарегистрируйтесь для продолжения!"
-            android:textAlignment="center"
-            android:textColor="#D4D4BD"
-            android:textSize="18sp" />
-
-        <Button
-            android:id="@+id/sign_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/ic_btn"
-            android:fontFamily="@font/roboto"
-            android:text="ВОЙТИ"
-            android:textColor="#29262A"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/reg_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="5dp"
-            android:fontFamily="@font/roboto_light"
-            android:padding="10dp"
-            android:text="Нет учетной записи? Создать.1"
-            android:textAlignment="center"
-            android:textColor="#D4D4BD"
-            android:textSize="16sp" />
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/bottom_nav" />
 
 
-    </LinearLayout>
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

@@ -3,5 +3,7 @@
     <color name="colorPrimary">#212121</color>
     <color name="colorPrimaryDark">#212121</color>
     <color name="colorAccent">#212121</color>
-    <color name="checkBox_color">#FFFFFF</color>
+    <color name="checkBox_color">#FFFFFF</color>#D4D4BD
+    <color name="colorBottomNav">#D4D4BD</color>
+
 </resources>

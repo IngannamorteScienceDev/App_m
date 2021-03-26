@@ -1,212 +1,159 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#212121"
-    tools:context=".MainActivity"
-    android:orientation="vertical"
-    android:layout_alignParentLeft="true"
-    android:layout_alignParentTop="true"
-    android:layout_alignParentRight="true"
-    android:layout_alignParentBottom="true"
-    android:layout_alignParentStart="true"
-    android:layout_alignParentEnd="true">
+    tools:context=".MainActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="60dp"
-        android:layout_marginTop="200dp"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:layout_marginStart="60dp">
+    <Button
+        android:id="@+id/back_btn"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/ic_back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.005"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
-            android:id="@+id/editTextEmailAddress"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:paddingLeft="10dp"
-            android:background="@drawable/input_email"
-            android:ems="10"
-            android:hint="@string/email"
-            android:inputType="textEmailAddress"
-            android:textColor="#D4D4BD"
-            android:autofillHints=""
-            android:paddingStart="10dp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="60dp"
-        android:layout_marginTop="360dp"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:layout_marginStart="60dp">
-
-        <EditText
-            android:id="@+id/editTextTextPhone"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:hint="@string/phone"
-            android:paddingLeft="10dp"
-            android:textColor="#D4D4BD"
-            android:background="@drawable/input_email"
-            android:inputType="phone"
-            android:autofillHints="" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="60dp"
-        android:layout_marginTop="280dp"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:layout_marginStart="60dp">
-
-        <EditText
-            android:id="@+id/first_last_name"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/input_email"
-            android:paddingLeft="10dp"
-            android:hint="@string/fio"
-            android:inputType="textPersonName"
-            android:textColor="#D4D4BD"
-            android:paddingStart="10dp"
-            android:autofillHints="" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="60dp"
-        android:layout_marginTop="440dp"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:layout_marginStart="60dp">
-
-        <EditText
-            android:id="@+id/editTextPassword"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/input_email"
-            android:ems="10"
-            android:hint="@string/pass"
-            android:inputType="textPassword"
-            android:paddingLeft="10dp"
-            android:textColor="#D4D4BD"
-            android:paddingStart="10dp"
-            android:autofillHints="" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="200dp"
-        android:layout_marginTop="590dp"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:layout_marginStart="200dp">
-
-        <Button
-            android:id="@+id/next_btn"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/btn_next"
-            android:focusable="auto"
-            android:text="@string/btn_next"
-            android:textColor="#1C1B1B"
-            android:textSize="18sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="60dp"
-        android:layout_marginTop="140dp"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:layout_marginStart="60dp">
-
-        <TextView
-            android:id="@+id/text_reg"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center_horizontal"
-            android:text="@string/text_reg"
-            android:textAlignment="center"
-            android:textColor="#D4D4BD"
-            android:textSize="24sp" />
-    </LinearLayout>
-
-    <LinearLayout
+    <TextView
+        android:id="@+id/text_reg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="10dp">
+        android:layout_marginTop="56dp"
+        android:layout_weight="1"
+        android:fontFamily="@font/roboto_medium"
+        android:gravity="center_horizontal"
+        android:text="@string/text_reg"
+        android:textAlignment="center"
+        android:textColor="#D4D4BD"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/back_btn" />
 
-        <Button
-            android:id="@+id/back_btn"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/back" />
-    </LinearLayout>
+    <EditText
+        android:id="@+id/editTextEmailAddress"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/ic_input_email"
+        android:ems="10"
+        android:fontFamily="@font/roboto_thin"
+        android:hint="@string/email"
+        android:inputType="textEmailAddress"
+        android:paddingStart="10dp"
+        android:textColor="#D4D4BD"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_reg"
+        android:autofillHints="" />
 
-    <LinearLayout
+    <EditText
+        android:id="@+id/first_last_name"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_weight="1"
+        android:background="@drawable/ic_input_email"
+        android:fontFamily="@font/roboto_thin"
+        android:hint="@string/fio"
+        android:inputType="textPersonName"
+        android:paddingStart="10dp"
+        android:paddingLeft="10dp"
+        android:textColor="#D4D4BD"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextEmailAddress"
+        android:autofillHints="" />
+
+    <EditText
+        android:id="@+id/editTextTextPhone"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_weight="1"
+        android:autofillHints=""
+        android:background="@drawable/ic_input_email"
+        android:fontFamily="@font/roboto_light"
+        android:ems="10"
+        android:hint="@string/phone"
+        android:inputType="phone"
+        android:paddingLeft="10dp"
+        android:textColor="#D4D4BD"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/first_last_name" />
+
+    <EditText
+        android:id="@+id/editTextPassword"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:autofillHints=""
+        android:background="@drawable/ic_input_email"
+        android:fontFamily="@font/roboto_light"
+        android:hint="@string/pass"
+        android:inputType="textPassword"
+        android:paddingStart="10dp"
+        android:paddingLeft="10dp"
+        android:textColor="#D4D4BD"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPhone" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="510dp"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:layout_marginStart="100dp">
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="32dp"
+        android:layout_weight="0"
+        android:buttonTint="@color/checkBox_color"
 
-        <CheckBox
-            android:id="@+id/checkBox"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0"
-            android:paddingRight="10dp"
-            android:text="@string/checkBox"
-            android:textColor="#FFFFFF"
-            android:textStyle="italic"
-            android:translationX="10dp"
-            android:buttonTint="@color/checkBox_color"
-            android:paddingEnd="10dp" />
+        android:fontFamily="@font/roboto"
+        android:paddingEnd="10dp"
+        android:paddingRight="10dp"
+        android:text="@string/checkBox"
+        android:textColor="#FFFFFF"
+        android:translationX="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />
 
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center_horizontal"
-            android:text="@string/contract"
-            android:textAlignment="center"
-            android:textAllCaps="false"
-            android:textStyle="italic" />
-    </LinearLayout>
-</RelativeLayout>
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:layout_weight="1"
+        android:fontFamily="@font/roboto_thin"
+        android:gravity="center_horizontal"
+        android:text="@string/contract"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textStyle="italic"
+        app:layout_constraintStart_toEndOf="@+id/checkBox"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />
+
+    <Button
+        android:id="@+id/next_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_weight="1"
+        android:background="@drawable/ic_btn_next"
+        android:focusable="auto"
+        android:text="@string/btn_next"
+        android:textColor="#1C1B1B"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

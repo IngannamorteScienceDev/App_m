@@ -50,10 +50,11 @@ public class Registration extends AppCompatActivity {
         nxt_btn = findViewById(R.id.next_btn);
         check = findViewById(R.id.checkBox);
 
-        auth = FirebaseAuth.getInstance();
+
         db = FirebaseDatabase.getInstance();
         users = db.getReference("Users");
         sessionManager = new SessionManager(getApplicationContext());
+        auth = FirebaseAuth.getInstance();
 
 
         // Поведения класса
