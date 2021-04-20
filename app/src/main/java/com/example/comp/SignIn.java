@@ -1,8 +1,5 @@
 package com.example.comp;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +9,9 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -27,6 +27,7 @@ public class SignIn extends AppCompatActivity {
     private Button back_btn;
     private Button nxt_btn;
     FirebaseAuth auth;
+    SessionManager sessionManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +41,7 @@ public class SignIn extends AppCompatActivity {
         nxt_btn = findViewById(R.id.next_btn);
 
         auth = FirebaseAuth.getInstance();
+        sessionManager = new SessionManager(getApplicationContext());
 
         // Поведения класса
         //Функция кнопки "Назад"
@@ -71,8 +73,10 @@ public class SignIn extends AppCompatActivity {
                     @Override
                     public void onSuccess(AuthResult authResult) {
                         Toast.makeText(SignIn.this, "Успешно!", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(SignIn.this, PersonalArea.class));
+                        sessionManager.setLogin(true);
+                        startActivity(new Intent(SignIn.this, MainFragment.class));
                         finish();
+
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override

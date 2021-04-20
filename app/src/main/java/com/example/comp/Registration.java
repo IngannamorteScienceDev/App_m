@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,12 +18,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Registration extends AppCompatActivity {
 
     //объявление и определение компонентов
+    ProgressBar progressBar;
     private EditText email_address;
     private EditText first_lastName;
     private EditText phone_user;
@@ -41,16 +49,17 @@ public class Registration extends AppCompatActivity {
         setContentView(R.layout.activity_app_register);
 
         // Инициализация компонентов экрана
+        first_lastName = findViewById(R.id.editTextName);
         email_address = findViewById(R.id.editTextEmailAddress);
-        first_lastName = findViewById(R.id.first_last_name);
         phone_user = findViewById(R.id.editTextTextPhone);
         password_user = findViewById(R.id.editTextPassword);
         check = findViewById(R.id.checkBox);
         back_btn = findViewById(R.id.back_btn);
         nxt_btn = findViewById(R.id.next_btn);
         check = findViewById(R.id.checkBox);
+        progressBar = findViewById(R.id.progress_load);
 
-
+        final FirebaseFirestore dbStore = FirebaseFirestore.getInstance();
         db = FirebaseDatabase.getInstance();
         users = db.getReference("Users");
         sessionManager = new SessionManager(getApplicationContext());
@@ -76,47 +85,57 @@ public class Registration extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 final String txt_email = email_address.getText().toString();
-                final String txt_name = first_lastName.getText().toString();
                 final String txt_phone = phone_user.getText().toString();
                 final String txt_pass = password_user.getText().toString();
+                final String txt_name = first_lastName.getText().toString();
 
-                if (validateEmailAddress(email_address) && TextUtils.isEmpty(txt_email) || TextUtils.isEmpty(txt_pass)
+
+                if (validateEmailAddress(email_address) && TextUtils.isEmpty(txt_email)
                         || TextUtils.isEmpty(txt_phone) || TextUtils.isEmpty(txt_name)) {
                     Toast.makeText(Registration.this, "Заполните поля!", Toast.LENGTH_SHORT).show();
-
                 } else if (txt_pass.length() < 6) {
                     Toast.makeText(Registration.this, "Пароль должен состоять не менее, чем из 6 символов!", Toast.LENGTH_SHORT).show();
                 } else if (!check.isChecked()) {
                     Toast.makeText(Registration.this, "Вы не приняли соглашение!", Toast.LENGTH_SHORT).show();
                 } else {
+                    progressBar.setVisibility(View.VISIBLE);
                     auth.createUserWithEmailAndPassword(txt_email, txt_pass)
                             .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                                 @Override
                                 public void onSuccess(AuthResult authResult) {
-                                    User user = new User();
-                                    user.setEmail(txt_email);
-                                    user.setName(txt_name);
-                                    user.setPass(txt_pass);
-                                    user.setPhone(txt_phone);
+                                    progressBar.setVisibility(View.GONE);
 
-                                    users.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(user).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                        @Override
-                                        public void onSuccess(Void aVoid) {
-                                            Toast.makeText(Registration.this, "Успешно", Toast.LENGTH_SHORT).show();
-                                            sessionManager.setLogin(true);
-                                            sessionManager.setNameUser(txt_name);
-                                            sessionManager.setPhoneUser(txt_phone);
-                                            startActivity(new Intent(getApplicationContext(), PersonalArea.class));
-                                            finish();
+                                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+                                    String uid = user.getUid();
+                                    String emailU = user.getEmail();
+
+                                    Map<String, Object> dataUser = new HashMap<>();
+                                    String[] order = {};
+                                    String[] favorite = {};
+
+                                    dataUser.put("uid", uid);
+                                    dataUser.put("email", emailU);
+                                    dataUser.put("name", txt_name);
+                                    dataUser.put("phone", txt_phone);
+                                    dataUser.put("password", txt_pass);
+                                    dataUser.put("orders", Arrays.asList(order));
+                                    dataUser.put("favorites", Arrays.asList(favorite));
+                                    dataUser.put("card", "");
+
+                                    dbStore.collection("Users").document(uid).set(dataUser);
+                                    Toast.makeText(Registration.this, "Успешно", Toast.LENGTH_SHORT).show();
+                                    sessionManager.setLogin(true);
+
+                                    startActivity(new Intent(getApplicationContext(), MainFragment.class));
+                                    finish();
                                         }
                                     });
                                 }
-                            });
-                }
             }
         });
         if (sessionManager.getLogin()) {
-            startActivity(new Intent(getApplicationContext(), PersonalArea.class));
+            startActivity(new Intent(getApplicationContext(), MainFragment.class));
         }
     }
 
